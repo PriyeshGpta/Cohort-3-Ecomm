@@ -70,6 +70,7 @@ const ProductsForm = ({
           <input
             {...register("price", {
               required: "Product's price is required",
+              valueAsNumber: true,
             })}
             type="number"
             autoComplete="off"

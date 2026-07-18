@@ -45,7 +45,7 @@ function App() {
     });
   };
 
-  const handleRemoveFromCart = (productId) => {
+  const handleRemoveOneFromCart = (productId) => {
     setAddToCartData((prev) => {
       let updatedCartData = new Map(prev);
       let newCount = prev.get(productId) - 1;
@@ -62,6 +62,14 @@ function App() {
     });
   };
 
+  const handleDeleteFromCart = (productId) => {
+    setAddToCartData((prev) => {
+      const updatedCartData = new Map(prev);
+      updatedCartData.delete(productId);
+      return updatedCartData;
+    });
+  };
+
   const renderContent = () => {
     if (navigateTo === NAVIGATION.GO_TO_PRODUCTS)
       return (
@@ -69,10 +77,18 @@ function App() {
           products={products}
           addToCartData={addToCartData}
           handleAddToCart={handleAddToCart}
-          handleRemoveFromCart={handleRemoveFromCart}
         />
       );
-    else if (navigateTo === NAVIGATION.GO_TO_CART) return <CartPage />;
+    else if (navigateTo === NAVIGATION.GO_TO_CART)
+      return (
+        <CartPage
+          products={products}
+          addToCartData={addToCartData}
+          handleAddToCart={handleAddToCart}
+          handleRemoveOneFromCart={handleRemoveOneFromCart}
+          handleDeleteFromCart={handleDeleteFromCart}
+        />
+      );
     else if (navigateTo === NAVIGATION.GO_TO_CREATE_PRODUCTS)
       return (
         <ProductsForm
