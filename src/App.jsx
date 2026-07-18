@@ -66,6 +66,10 @@ function App() {
     setAddToCartData((prev) => {
       const updatedCartData = new Map(prev);
       updatedCartData.delete(productId);
+      localStorage.setItem(
+        "cartData",
+        JSON.stringify(Object.fromEntries(updatedCartData)),
+      );
       return updatedCartData;
     });
   };
