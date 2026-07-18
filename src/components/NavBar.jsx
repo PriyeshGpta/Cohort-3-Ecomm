@@ -11,8 +11,8 @@ const NavBar = ({ navigateTo, setNavigateTo }) => {
       />
       <div className="flex gap-2">
         <button
-          className={`${navigateTo === NAVIGATION.GO_TO_PRODUCTS ? "bg-green-800" : "bg-blue-800"} px-4 py-2 rounded-md cursor-pointer active:scale-90 transition-all duration-300 ease-in-out`}
-          onClick={() => setNavigateTo(NAVIGATION.GO_TO_PRODUCTS)}
+          className={`${navigateTo === NAVIGATION.GO_TO_BUY_PRODUCTS ? "bg-green-800" : "bg-blue-800"} px-4 py-2 rounded-md cursor-pointer active:scale-90 transition-all duration-300 ease-in-out`}
+          onClick={() => setNavigateTo(NAVIGATION.GO_TO_BUY_PRODUCTS)}
         >
           Buy Products
         </button>

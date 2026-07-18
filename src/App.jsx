@@ -1,13 +1,13 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
-import ProductsForm from "./components/ProductsForm";
-import ManageProductsPage from "./components/ManageProductsPage";
+import BuyProductsPage from "./pages/BuyProductsPage";
+import ManageProductsPage from "./pages/ManageProductsPage";
+import CreateProductsPage from "./pages/CreateProductsPage";
+import CartPage from "./pages/CartPage";
 import { NAVIGATION } from "./constants/navigation";
-import ProductsPage from "./components/ProductsPage";
-import CartPage from "./components/CartPage";
 
 function App() {
-  const [navigateTo, setNavigateTo] = useState(NAVIGATION.GO_TO_PRODUCTS);
+  const [navigateTo, setNavigateTo] = useState(NAVIGATION.GO_TO_BUY_PRODUCTS);
   const [products, setProducts] = useState(
     JSON.parse(localStorage.getItem("products")) || [],
   );
@@ -71,9 +71,9 @@ function App() {
   };
 
   const renderContent = () => {
-    if (navigateTo === NAVIGATION.GO_TO_PRODUCTS)
+    if (navigateTo === NAVIGATION.GO_TO_BUY_PRODUCTS)
       return (
-        <ProductsPage
+        <BuyProductsPage
           products={products}
           addToCartData={addToCartData}
           handleAddToCart={handleAddToCart}
@@ -91,7 +91,7 @@ function App() {
       );
     else if (navigateTo === NAVIGATION.GO_TO_CREATE_PRODUCTS)
       return (
-        <ProductsForm
+        <CreateProductsPage
           products={products}
           setProducts={setProducts}
           setNavigateTo={setNavigateTo}

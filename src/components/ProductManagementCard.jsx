@@ -1,11 +1,8 @@
 import React from "react";
 
-const ProductManagementCard = ({product, handleEdit, handleDelete}) => {
+const ProductManagementCard = ({ product, handleEdit, handleDelete }) => {
   return (
-    <div
-      className="bg-gray-400 rounded-md p-3 flex flex-col justify-between"
-      key={product.id}
-    >
+    <div className="bg-gray-400 rounded-md p-3 flex flex-col justify-between">
       <div>
         <img
           src={product.image}
